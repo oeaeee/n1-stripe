@@ -1,0 +1,41 @@
+// Buttons
+
+.button-dropdown {
+    border-radius: 3px;
+
+    .primary-item,
+    &.btn-emphasis .primary-item,
+    .secondary-picker,
+    &.btn-emphasis .secondary-picker {
+        height:100%;
+        padding: 0 15px;
+        border:none;
+        background: transparent;
+        box-shadow:none !important;
+        min-height:32px;
+        line-height:32px;
+
+    }
+
+    .secondary-picker,
+    &.btn-emphasis .secondary-picker {
+        padding: 0 10px;
+        border-left:1px solid #dfdfdf;
+    }
+
+    .secondary-items .menu .item,
+    &.btn-emphasis .secondary-items .menu .item {
+        padding: 12px 16px;
+    }
+    &.bordered {
+        border: 1px solid #dfdfdf;
+    }
+
+}
+
+.btn-emphasis,
+.btn-emphasis .primary-item,
+.btn-emphasis .secondary-picker {
+    height:32px;        // Sets height of button
+    line-height:32px;   // Vertical centers button content
+}

@@ -1,0 +1,217 @@
+// Account Tab Bar (formerly Sidebar)
+
+.account-sidebar {
+    &:before {
+        content: "";
+        width:200%;
+        height:200%;
+        position: absolute;
+        box-shadow: inset 0 0px 6px @grayMed;
+        margin-left:-8px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .scroll-region-content-inner {
+        display: flex;
+        flex-direction: row;
+        overflow-x:scroll;
+        align-items: center;
+
+        .account-switcher {
+            position:initial;
+            top:initial;
+            left:initial;
+            display: flex;
+            padding-left:25px;
+            height: @source-bar-height;
+            align-items: center;
+            background-color: @source-header-bg;
+
+            img {
+                -webkit-mask-image: url('/Applications/Nylas N1.app/Contents/Resources/app.asar/static/images/sidebar/account-switcher-dropdown@2x.png');
+                background-color: @source-header-color;;
+                -webkit-mask-repeat: no-repeat;
+                -webkit-mask-size: 40px;
+                object-position: 10000px;
+
+                &[style] {
+                    width:40px !important;
+                    height:auto !important;
+                }
+                &:hover {
+                    background-color:@white;
+                }
+            }
+        }
+
+        .account-sidebar-sections {
+            display: flex;
+            flex-direction: row;
+
+            .nylas-outline-view {
+                display: flex;
+                flex-direction: row;
+                color:@source-list-default-color;
+
+                > div {
+                  display: flex;
+                  flex-direction: row;
+                }
+
+                .heading {
+                    height: @source-bar-height;
+                    align-items:center;
+                    padding:0;
+                    padding-left:8.5px;
+                    color: @text-color-heading;
+                    font-size:10px;
+                    text-transform: uppercase;
+                    font-weight:bold;
+                    letter-spacing: 0.1em;
+                    background-color: @source-header-bg;
+                }
+                .item-container {
+                    .disclosure-triangle {
+                        display: none;
+                    }
+
+                    .item {
+                        height: @source-bar-height;
+                        color: @source-list-default-color;
+                        align-items:center;
+                        padding:0 20px;
+                        font-size:13px;
+                        font-weight:bold;
+                        overflow: hidden;
+                        align-items: center;
+
+                        &:before {
+                            width: 1px;
+                            content: "";
+                            height: 4px;
+                            display: block;
+                            background-color: @blueDark;
+                            position: relative;
+                            top: calc(~"50%" - 2px);
+                            left: 50%;
+                            transform: scale(0,1);
+                        }
+
+                        .icon img.content-mask {
+                            background-color: @source-list-default-color;
+                        }
+
+                        .name {
+                            white-space: nowrap;
+                        }
+
+                        &.selected {
+                            background-color: @source-list-active-bg;
+                            color:@source-list-active-color;
+
+                            &:before {
+                                transition: all 0.2s linear;
+                                transform: scale(200,1);
+                                background-color: @greenLight;
+                            }
+
+                            img.content-mask {
+                                background-color: @source-list-active-color;
+                            }
+                        }
+
+                        &:hover:not(.selected) {
+                            background-color: @source-list-bg-hover;
+                        }
+
+                    }
+
+                    &.dropping {
+                        background-color: @source-list-bg-dropping;
+                    }
+                }
+
+                &:not(:first-of-type) {    /* Folders */
+                    background: @source-list-secondary-bg;
+                    border-left:2px solid darken(@source-list-secondary-bg,5%);
+                    border-right:1px solid @source-list-border;
+
+                    .heading {
+                        background: none;
+                        padding:0 20px;
+
+                        .add-item-button {
+                            display: block;
+                            margin-right:0;
+
+                            img {
+                                background-color: @source-list-default-color;
+
+                                &:hover {
+                                    background-color: @blueBase;
+                                }
+                            }
+                        }
+                        .collapse-button {
+                            display: none;
+                        }
+                    }
+
+                    .item {
+                        font-size:13px;
+                        font-weight:normal;
+                        padding:0 15px;
+                        border-left:1px solid @source-list-border;
+                        text-align: center;
+
+                        .icon {
+                            display: none;
+                        }
+                        .name {
+                            line-height: 16px;
+                            padding:0;
+                        }
+
+                        &.editing {
+                            animation-name: scaleIn;
+                            animation-duration: 0.15s;
+                            transform-origin: left center;
+                            border:none;
+                            padding:0;
+
+                            input {
+                                animation-name: fadeIn;
+                                animation-duration: 0.5s;
+                                border-radius: 0;
+                                border:none;
+                                border-bottom: 2px solid @blueMed;
+                                background: lighten(@panel-background-color, 10%);
+                                padding:6px;
+                                font-size: 14px;
+                                min-width:220px;
+                                box-shadow: none;
+                                margin-right: 15px;
+                                color:@blueDark;
+                                height:auto;
+
+                                &::-webkit-input-placeholder {
+                                    color: fadeout(@blueDark,60%);
+                                    font-weight:normal;
+                                }
+                            }
+                            &:hover {
+                                background: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.sidebar-activity {
+    display:none;
+}

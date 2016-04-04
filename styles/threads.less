@@ -1,0 +1,178 @@
+// Thread List
+
+.thread-list,
+.draft-list {
+    .list-container {
+        background-color: @list-bg;
+
+        .list-item {
+            background-color: @list-bg;
+            border-bottom:1px solid @list-border;
+            border-left-width:0px;
+            transition: all 0s;
+            color:@list-color;
+
+            .participants,
+            .subject,
+            .snippet,
+            .timestamp {
+                font-size:13.5px;
+            }
+            .participants {
+              font-weight:bold;
+            }
+            .subject {
+              font-weight:normal;
+            }
+            .timestamp {
+                padding-left:4px;
+            }
+
+            .snippet {
+              opacity: 0.5;
+            }
+
+            .draft-icon {
+            }
+            .thread-icon-star {
+                background-image: none;
+                -webkit-mask-image: url(../static/images/thread-list/icon-star-@2x.png);
+                -webkit-mask-size: 65%;
+                -webkit-mask-position: center;
+                -webkit-mask-repeat: no-repeat;
+                background-color: @gold;
+            }
+            .thread-icon-attachment {
+                opacity: 0.5;
+            }
+            .thread-icon-unread,
+            .thread-icon-replied {
+                visibility:hidden;
+            }
+
+            &:not(.unread) .list-column {
+            }
+
+            &.unread,
+            .unread:not(.focused),
+            .unread:not(.focused):not(.selected),
+            .draft-list .unread:not(.focused):not(.selected) {
+                color: @list-unread-color;
+                background: @list-unread-bg;
+            }
+            &.focused,
+            &.focused.unread,
+            &.selected,
+            &.selected.unread {
+                height: 84px;
+                color: @list-focused-color;
+                background: @component-active-color;
+
+                .participants .unread-true {
+                  font-weight:bold;
+                }
+
+                .list-column {
+                    opacity: 1.0;
+                }
+
+                .mail-label {
+                    -webkit-filter:none;
+                }
+            }
+
+            .focused .mail-label {
+                background: @white !important;
+            }
+            .mail-label {
+                position: fixed;
+                right: 6px;
+                bottom: 8px;
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+
+
+
+.thread-injected-mail-labels {
+    margin:0;
+
+    .mail-label {
+        padding: 5px 12px;
+        border-radius: 0;
+        font-weight: bold;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        &[style] {
+            background: white !important;
+            box-shadow: none !important;
+            box-shadow: 0 1px 3px #bdbdbd !important;
+        }
+
+        &.removable {
+            &:hover .inner {
+                left: inherit;
+            }
+
+            .x {
+                position: absolute;
+                padding: 4px;
+                top: -7px;
+                left: -9px;
+                height: 18px;
+                border-radius: 50%;
+
+                &[style] {
+                    background-color: #dfdfdf !important;
+                    -webkit-mask-image: none !important;
+                    object-position: initial !important;
+                    zoom: 1 !important;
+                }
+
+            }
+        }
+
+        .snooze-mail-label {
+            color: @red;
+
+            img {
+                background-color: @red;
+
+                &[style] {
+                    color: @red !important;
+                }
+            }
+
+        }
+
+    }
+}
+
+.scrollbar-track {
+    background: transparent;
+    border-left: none;
+    width:12px;
+    padding:2px;
+
+    &:hover,
+    &.dragging {
+      width:16px;
+    }
+
+    .scrollbar-handle {
+        background-color: @grayMed;
+        opacity:0.3;
+        border: none;
+    }
+    &.dragging .scrollbar-handle {
+        background-color: @grayMed;
+        border:none;
+        opacity:0.8;
+    }
+
+}

@@ -1,0 +1,12 @@
+{
+  "name": "n1-stripe",
+  "displayName": "Stripe",
+  "theme": "ui",
+  "version": "0.1.0",
+  "description": "A Nylas N1 theme that displays accounts below your messages.",
+  "license": "GPL-3.0",
+  "engines": {
+    "nylas": "*"
+  },
+  "private": true
+}

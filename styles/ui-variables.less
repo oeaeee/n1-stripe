@@ -1,0 +1,193 @@
+@import "toolbar.less";
+@import "accounts.less";
+@import "threads.less";
+@import "message.less";
+@import "buttons.less";
+
+@grayBase:    #efefef;
+@grayLight:   #999999;
+@grayMed:     #666666;
+@blackBase:   #333333;
+
+@red:         #A04534;
+@gold:        #E4AE31;
+
+@blueBase:    #EDF4F5;
+@blueLight:   #B4CCCD;
+@blueMed:     #3E7880;
+@blueDark:    #153547;
+
+@greenLight:  #52A58E;
+
+
+//=============================== Components ===========================//
+
+//== Toolbar
+@toolbar-btn-bg:                @white;
+@toolbar-btn-border:            #dfdfdf;
+@toolbar-btn-active-bg:         @blueBase;
+@toolbar-btn-active-border:     @blueDark;
+@toolbar-btn-hover-bg:          @blueDark;
+@toolbar-btn-hover-color:       @white;
+
+@toolbar-item-height:             32px;
+@toolbar-padding-v:               8px;
+@toolbar-item-border-width:       1px;
+@toolbar-height:                  @toolbar-item-height + 2*@toolbar-item-border-width + 2*@toolbar-padding-v;
+@search-active-border-bot-width:  6*@toolbar-item-border-width;
+@toolbar-item-width:              @toolbar-item-height*1.5;
+
+
+
+//== Account Sidebar
+@panel-background-color:        @blueLight;
+@source-list-bg:                @panel-background-color;
+@source-list-primary-bg:        @panel-background-color;
+@source-list-secondary-bg:      darken(@panel-background-color,5%);
+@source-list-border:            darken(@panel-background-color,7%);
+@source-list-active-bg:         @blueBase;
+@source-list-active-color:      @blueDark;
+@source-list-default-color:     @blueMed;
+@source-list-bg-hover:          darken(@panel-background-color,10%);
+@source-list-bg-dropping:       darken(@panel-background-color,15%);
+
+@source-bar-height:             60px;
+@source-item-header-height:     60px;
+@source-item-height:            60px;
+@source-item-height-child:      @source-item-height;
+@source-item-padding-h:         0;
+
+@source-header-bg:              transparent;
+@source-header-color:           @source-list-default-color;
+@source-header-fsize:           10px;
+@source-item-fsize:             13px;
+
+
+
+//== Thread List (e.g, `.list-group-item`, `.list-item`)
+@list-bg:                  @grayBase;
+@list-color:               fadeOut(@blueDark,30%);
+@list-border:              #dfdfdf;
+@list-hover-bg:            darken(@list-bg, 4%);
+@list-focused-color:       @white;
+@list-focused-bg:          @component-active-color;
+@list-focused-border:      @list-focused-bg;
+@list-selected-color:      @white;
+@list-selected-bg:         @component-active-color;
+@list-selected-border:     mix(@component-active-color, @list-bg, 50%);
+
+@list-unread-color: lighten(@blueDark,10%);
+@list-unread-bg: @white;
+
+
+//== Message
+@msg-shadow:          0 0 8px #bdbdbd;
+@msg-corner-radius:   0px;
+@msg-border:          0px solid #dfdfdf;
+
+@msg-collapsed-bg:        #FBFBFB;
+@msg-collapsed-shadow:    0 0 8px #dfdfdf;
+
+@msg-max-width:             800px;
+@msg-padding-v:             10px;
+@msg-padding-h:             20px;
+@msg-padding:               @msg-padding-v @msg-padding-h;
+
+@msg-collapsed-width-delta: 20px;
+@msg-collapsed-max-width:   @msg-max-width -  @msg-collapsed-width-delta;
+@msg-collapsed-padding:     @msg-padding-v @msg-padding-h;
+
+@msg-header-fields-height:  60px;
+
+
+
+//== Notifications
+@background-color-info: @blue-light;
+@background-color-success: #009ec4;
+@background-color-warning: #ff4800;
+@background-color-error: #f15f4b;
+@background-color-pending: #b4babd;
+
+//== Menus
+@menu-item-color-hover: fade(@blue-light, 10%);
+@menu-item-color-selected: @blue-light;
+@menu-text-color-selected: @text-color-inverse;
+
+//== Sizes
+@input-font-size: 14px;
+@component-padding: 10px;
+@component-icon-padding: 5px;
+@component-icon-size: 16px;
+@component-line-height: 25px;
+@component-border-radius: 2px;
+
+
+//=============================== Colors ===============================//
+
+@accent-primary:      @blue;
+@accent-primary-dark: @blue-dark;
+
+@background-primary:     @white;
+@background-off-primary: #fdfdfd;
+@background-secondary:   #f6f6f6;
+@background-tertiary:    #6d7987;
+
+@color-info:    @blue-dark;
+@color-success: #5CB346;
+@color-warning: #f0ad4e;
+@color-error:   #d9534f;
+@color-danger:  #d9534f;
+
+@component-active-color:        @blueDark;
+@component-active-bg:           @background-primary;
+
+@background-gradient: linear-gradient(to top, rgba(241,241,241,0.75) 0%,
+rgba(253,253,253,0.75) 100%);
+
+@border-color-primary: darken(@background-primary, 10%);
+@border-color-secondary: darken(@background-secondary, 10%);
+@border-color-tertiary: darken(@background-tertiary, 10%);
+@border-color-divider: @border-color-secondary;
+
+@shadow: rgba(50,50,50,0.6);
+
+//============================= Typography =============================//
+
+// ----- Colors -----
+@text-color:         @black;
+@text-color-inverse: @white;
+@text-color-heading: @source-header-color;
+
+@text-color-link:        @blue;
+@text-color-link-hover:  @blue-dark;
+@text-color-link-active: @blue-dark;
+
+
+
+
+
+// Layout Hack
+
+div.column-RootSidebar[style] {
+    position:   fixed !important;
+    height:     @source-bar-height !important;
+    width:      100% !important;
+    min-width:  100% !important;
+    max-width:  100% !important;
+    bottom:0;
+    z-index: 2;
+}
+.column-ThreadList,
+.column-MessageList {
+    border-bottom: @source-bar-height solid transparent;
+}
+.column-MessageList {
+    min-width:600px !important;
+}
+.toolbar-RootSidebar{
+    width:140px !important;
+    z-index: 1;
+}
+.toolbar-ThreadList[style] {
+    left:160px !important;
+}

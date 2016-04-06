@@ -1,6 +1,7 @@
 // Account Tab Bar (formerly Sidebar)
 
 .account-sidebar {
+    width:100%;
     &:before {
         content: "";
         width:200%;
@@ -52,11 +53,13 @@
             .nylas-outline-view {
                 display: flex;
                 flex-direction: row;
+                align-items: center;
                 color:@source-list-default-color;
 
                 > div {
                   display: flex;
                   flex-direction: row;
+                  align-items: center;
                 }
 
                 .heading {
@@ -133,81 +136,112 @@
                 }
 
                 &:not(:first-of-type) {    /* Folders */
+                    border-left:0px solid darken(@source-list-secondary-bg,5%);
+                    transform: all 1.0s;
                     background: @source-list-secondary-bg;
-                    border-left:2px solid darken(@source-list-secondary-bg,5%);
-                    border-right:1px solid @source-list-border;
 
+                    &:nth-of-type(odd) {
+                    background: darken(@source-list-secondary-bg,4%);
+
+                    }
                     .heading {
-                        background: none;
                         padding:0 20px;
+                        text-align:center;
+                        flex-direction: column;
+                        justify-content: center;
+                        position:relative;
 
+                        &:hover {
+                            color: fadeOut(@source-list-default-color,50%);
+                        }
                         .add-item-button {
-                            display: block;
-                            margin-right:0;
+                            display: inline-block;
+                            margin: 0;
+                            position:absolute;
+                            right:0;
+                            top: 0;
+                            background-color: @source-list-add-item-bg;
+                            color: @blueBase;
 
                             img {
+                                display: none;
+                            }
+                            &:before {
+                                content: "+";
+                                font-size:20px;
+                                font-weight:bold;
+                                height:20px;
+                                width:20px;
+                                line-height:18px;
+                                display: block;
+                            }
+                            &:hover {
                                 background-color: @source-list-default-color;
-
-                                &:hover {
-                                    background-color: @blueBase;
-                                }
+                                color: @white;
                             }
                         }
                         .collapse-button {
-                            display: none;
+                            margin:0;
+                            animation: slideExpandHeight 1.0s, fadeIn 0.5s;
+                            text-decoration: underline;
+                            color:@blueMed;
+
+                            .collapsed-button ~ span {
+
+                            }
+                            &:hover {
+                                color: @blueDark;
+                            }
                         }
                     }
 
-                    .item {
-                        font-size:13px;
-                        font-weight:normal;
-                        padding:0 15px;
+                    .item-container {
+                        animation: slideExpandWidth 0.5s ease-out;
+                        overflow: hidden;
                         border-left:1px solid @source-list-border;
-                        text-align: center;
 
-                        .icon {
-                            display: none;
-                        }
-                        .name {
-                            line-height: 16px;
-                            padding:0;
-                        }
+                        .item {
+                            font-size:13px;
+                            font-weight:normal;
+                            padding:0 15px;
+                            text-align: center;
 
-                        &.editing {
-                            animation-name: scaleIn;
-                            animation-duration: 0.15s;
-                            transform-origin: left center;
-                            border:none;
-                            padding:0;
-
-                            input {
-                                animation-name: fadeIn;
-                                animation-duration: 0.5s;
-                                border-radius: 0;
-                                border:none;
-                                border-bottom: 2px solid @blueMed;
-                                background: lighten(@panel-background-color, 10%);
-                                padding:6px;
-                                font-size: 14px;
-                                min-width:220px;
-                                box-shadow: none;
-                                margin-right: 15px;
-                                color:@blueDark;
-                                height:auto;
-
-                                &::-webkit-input-placeholder {
-                                    color: fadeout(@blueDark,60%);
-                                    font-weight:normal;
-                                }
+                            .icon {
+                                display: none;
                             }
-                            &:hover {
-                                background: transparent;
+                            .name {
+                                line-height: 16px;
+                                padding:0;
+                            }
+
+                            &.editing {
+                                background-color: @source-list-add-item-bg;
+                                margin:0;
+                                border:none;
+                                min-width:220px;
+
+                                input {
+                                    border-radius: 0;
+                                    border:none;
+                                    border-bottom: 2px solid @blueMed;
+                                    background: lighten(@panel-background-color, 10%);
+                                    padding:6px;
+                                    width:100%;
+                                    font-size: 14px;
+                                    box-shadow: none;
+                                    color:@blueDark;
+                                    height:auto;
+
+                                    &::-webkit-input-placeholder {
+                                        color: fadeout(@blueDark,60%);
+                                        font-weight:normal;
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
-
         }
     }
 }

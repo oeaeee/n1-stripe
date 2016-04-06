@@ -43,13 +43,14 @@
 @panel-background-color:        @blueLight;
 @source-list-bg:                @panel-background-color;
 @source-list-primary-bg:        @panel-background-color;
-@source-list-secondary-bg:      darken(@panel-background-color,5%);
-@source-list-border:            darken(@panel-background-color,7%);
+@source-list-secondary-bg:      darken(@panel-background-color,7%);
+@source-list-border:            fadeOut(@source-list-default-color,85%);
 @source-list-active-bg:         @blueBase;
 @source-list-active-color:      @blueDark;
 @source-list-default-color:     @blueMed;
 @source-list-bg-hover:          darken(@panel-background-color,10%);
 @source-list-bg-dropping:       darken(@panel-background-color,15%);
+@source-list-add-item-bg:       fadeOut(@source-list-default-color,60%);
 
 @source-bar-height:             60px;
 @source-item-header-height:     60px;
@@ -151,6 +152,7 @@ rgba(253,253,253,0.75) 100%);
 
 @shadow: rgba(50,50,50,0.6);
 
+
 //============================= Typography =============================//
 
 // ----- Colors -----
@@ -164,9 +166,43 @@ rgba(253,253,253,0.75) 100%);
 
 
 
+//============================= Animations =============================//
+
+@keyframes slideExpandHeight {
+    0%    { max-height: 0; }
+    100%  { max-height: 300px; }
+}
+
+@keyframes slideExpandWidth {
+    0%    { max-width: 0; }
+    100%  { max-width: 400px; }
+}
+@keyframes scaleIn {
+    0%    { transform: scale(0,0); }
+    100%  { transform: scale(1,1); }
+}
+@keyframes scaleInHeight {
+    0%    { transform: scale(1,0); }
+    100%  { transform: scale(1,1); }
+}
+@keyframes scaleInWidth {
+    0%    { transform: scale(0,1); }
+    100%  { transform: scale(1,1); }
+}
+@keyframes fadeIn {
+    0%    { opacity:0; }
+    100%  { opacity:1.0; }
+}
+@keyframes flashIn {
+    0%    { background-color: @white; }
+    100%  { background-color: transparent; }
+}
 
 
-// Layout Hack
+
+
+
+//============================= Layout Hack =============================//
 
 div.column-RootSidebar[style] {
     position:   fixed !important;

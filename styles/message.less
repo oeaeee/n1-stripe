@@ -137,11 +137,11 @@
                                 color: @grayMed;
                             }
                         }
-                        iframe {
-                            margin:0;
+                        .iframe-container {
                             padding: @msg-padding-h @msg-padding-h;
                             box-sizing: content-box;
                             width: calc(~"100%" - 2*@msg-padding-h);
+                            margin:0;
                         }
 
                         .download-all {
@@ -246,6 +246,7 @@
             max-width: @msg-max-width;
             box-shadow: @msg-shadow;
             border:none;
+            margin-top:0;
 
             .footer-reply-area {
                 max-width: @msg-max-width;

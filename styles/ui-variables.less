@@ -215,7 +215,7 @@ div.column-RootSidebar[style] {
 }
 .column-ThreadList,
 .column-MessageList {
-    border-bottom: @source-bar-height solid transparent;
+    height: calc(~"100%" - @source-bar-height) !important;
 }
 .column-MessageList {
     min-width:600px !important;

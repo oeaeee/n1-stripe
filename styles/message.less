@@ -54,12 +54,12 @@
                             min-height: @msg-header-fields-height;
                             border-bottom: 1px dotted #dfdfdf;
 
+
                             .participants {
                                 padding: @msg-padding;
                                 margin-bottom:0px;
                                 min-height: @msg-header-fields-height;
                                 display: flex;
-                                align-items: center;
                                 border-bottom: 1px dotted #dfdfdf;
 
                                 &.collapsed {
@@ -74,12 +74,13 @@
                                     }
                                 }
                             }
-                                .header-row {
-                                    padding: 8px @msg-padding-h;
-                                    margin:0;
-                                }
+                            .header-row {
+                                padding: 8px @msg-padding-h;
+                                margin:0;
+                            }
 
-                            .message-header-right {
+                            .message-header-right,
+                            .pending-spinner {
                                 position: absolute;
                                 top:0;
                                 right:0;
@@ -89,9 +90,16 @@
                                 align-items: center;
                                 border:none;
 
+                                & > * {
+                                    align-items: center;
+                                }
                                 .message-time {
                                     padding:0;
                                 }
+                            }
+                            .pending-spinner {
+                                left:0;
+                                right:auto;
                             }
                             .collapsed-participants {
                                 margin:0;

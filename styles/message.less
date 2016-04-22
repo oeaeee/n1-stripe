@@ -52,25 +52,26 @@
                             display: flex;
                             flex-direction: column;
                             min-height: @msg-header-fields-height;
-                            border-bottom: 1px dotted #dfdfdf;
-
 
                             .participants {
                                 padding: @msg-padding;
                                 margin-bottom:0px;
                                 min-height: @msg-header-fields-height;
                                 display: flex;
+                                align-items: center;
                                 border-bottom: 1px dotted #dfdfdf;
 
                                 &.collapsed {
                                     padding: 0 @msg-padding-h;
                                     min-height: @msg-header-fields-height/2;
                                     border:none;
+
                                     &.from-participants {
                                         align-items: flex-end;
                                     }
                                     &.to-participants {
                                         align-items: flex-start;
+                                        border-bottom: 1px dotted #dfdfdf;
                                     }
                                 }
                             }
@@ -291,7 +292,6 @@
                             height:0;
                             display: flex;
                             align-items: center;
-                            border-bottom: 1px solid #dfdfdf;
 
                             .action {
                                 display: inline-block;
@@ -316,13 +316,12 @@
                             }
                         }
                         .collapsed-composer-participants {
-                            border-bottom: 1px solid #dfdfdf;
+                            line-height: 36px;
+                            padding: 12px @msg-padding-h;
                             margin:0;
-                            padding: @msg-padding-v @msg-padding-h;
-                            display: flex;
-                            align-items: center;
-                            white-space: nowrap;
                             height:@msg-header-fields-height;
+                            border-bottom: 1px solid #dfdfdf;
+                            white-space: nowrap;
 
                             .collapsed-contact {
                                 display: inline-block;
@@ -350,22 +349,19 @@
 
                             .composer-participant-field {
                                 line-height: 36px;
-                                padding: @msg-padding-v @msg-padding-h;
+                                padding: 12px @msg-padding-h;
                                 margin:0;
-                                display: flex;
-                                align-items: center;
                                 min-height: @msg-header-fields-height;
                                 border-bottom: 1px solid #dfdfdf;
 
-                                .tokenizing-field-label,
-                                .composer-field-label {
+                                .tokenizing-field-label {
                                     width:48px;
                                     padding: 0;
-                                    margin-top:2px;
                                     position: absolute;
                                 }
 
                                 .tokenizing-field-input {
+                                    padding:0;
                                     padding-left:48px;
 
                                     .token {
@@ -395,8 +391,19 @@
                                     display: inline;
                                     vertical-align: top;
                                 }
-                                &:last-of-type {
+                                &:not(.to-field) {
+
+                                    .composer-field-label {
+                                        display: inline-block;
+                                        width: 48px;
+                                        padding: 0;
+                                    }
+                                    span {
+                                        top: auto !important;
+                                        left: auto !important;
+                                    }
                                 }
+
                             }
                         }
                     }

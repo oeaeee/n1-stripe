@@ -6,16 +6,16 @@
     min-height: @toolbar-height;
     max-height: @toolbar-height;
     border-color: @border-color-primary;
-    border-top: @toolbar-padding-v solid transparent;
+    padding: @toolbar-padding-v 0 @toolbar-padding-v;
     border-bottom: 1px solid #dfdfdf;
 
     .sheet-toolbar-container {
       border-width:0;
       background-image:none;
+      height:auto !important;
       background-color: @white;
       z-index: 1;
       color: @blueDark;
-
     }
 
 }
@@ -28,7 +28,9 @@
     margin:0;
     .menu {
         .header-container {
-          height: @toolbar-item-height;
+            height: @toolbar-item-height;
+            margin: 0 10.5px 0 0;
+
             input {
                 transition: border-width 0.1s ease-in;
                 border:1px solid @toolbar-btn-border;
@@ -87,11 +89,14 @@
             border-radius:0;
             border:none;
             border-right: @toolbar-item-border-width solid @toolbar-btn-border;
+            height:@toolbar-item-height - 2*@toolbar-item-border-width;
 
-            &.btn-category-picker {
+            &[title=Star] {
                 border:none;
             }
+
         }
+
         img.content-mask {
             background-color: @blueDark;
         }

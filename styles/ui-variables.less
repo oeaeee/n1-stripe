@@ -220,10 +220,19 @@ div.column-RootSidebar[style] {
 .column-MessageList {
     min-width:600px !important;
 }
-.toolbar-RootSidebar{
-    width:140px !important;
-    z-index: 1;
-}
-.toolbar-ThreadList[style] {
-    left:160px !important;
+.sheet-toolbar-container {
+
+    .toolbar-RootSidebar{
+        z-index: 1;
+        width: 200px !important;
+    }
+    .toolbar-ThreadList[style] {
+        left: 200px !important;
+        width: auto !important;
+    }
+    .toolbar-MessageList {
+        width: auto !important;
+        left: auto !important;
+        right:0;
+    }
 }

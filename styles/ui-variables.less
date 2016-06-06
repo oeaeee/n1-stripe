@@ -221,14 +221,14 @@ div.column-RootSidebar[style] {
     min-width:600px !important;
 }
 .sheet-toolbar-container {
+    display: flex;
 
-    .toolbar-RootSidebar{
+    .toolbar-RootSidebar,
+    .toolbar-ThreadList {
         z-index: 1;
-        width: 200px !important;
-    }
-    .toolbar-ThreadList[style] {
-        left: 200px !important;
+        position: static !important;
         width: auto !important;
+        left: auto !important;
     }
     .toolbar-MessageList {
         width: auto !important;
